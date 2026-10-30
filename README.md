@@ -1,5 +1,7 @@
 # so_arm_agent
 
+[![CI](https://github.com/vicfei/so_arm_agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vicfei/so_arm_agent/actions/workflows/ci.yml)
+
 Robot Use Agent for SO-ARM101：不训练模型，用 LLM/VLM（API，低频咨询）驱动确定性原语完成桌面任务。
 
 > 设计定稿见 [docs/06-robot-use-agent-roadmap.md](docs/06-robot-use-agent-roadmap.md)（2026-10-20，自
@@ -25,9 +27,26 @@ Verifier: 复拍一帧 → 判完成度 → 带反馈重规划             [veri
 
 分层契约见 [docs/design/architecture.md](docs/design/architecture.md)。
 
+## 90% 真闭环（mock 执行外的全真链路）
+
+感知与规划不走任何假件——渲染器把模拟桌面画成真实 BGR 帧，OpenCV 做 HSV 色块检测
+（实测往返误差 0.00mm），LLM 规划器看渲染帧低频出原语（DeepSeek-Vision，约 13s/次）。
+**唯一的模拟件是电机转动**（mock executor 直接更新场景状态）——臂重装后换真机 TCP
+executor，其余代码零改动。
+
+```bash
+python3 scripts/run_real_perception_demo.py              # scripted（零网络）
+DEEPSEEK_API_KEY=... python3 scripts/run_real_perception_demo.py --llm   # 真 LLM 规划
+python3 scripts/run_suite.py                             # 5 任务成功率表
+```
+
+两种模式均已实测 PASS（scripted 4 轮 / LLM 3 轮完成推送）；任务套件 5 任务全绿
+（见 [suite_results.md](suite_results.md)）。
+
 ## 状态
 
-- **2026-10-22**: 建仓；mock 闭环（MVP「推 X 到 Y」）骨架——臂收纳中先跑纯逻辑。
+- **2026-10-22**: 建仓；mock 闭环骨架。
+- **2026-10-29**: 90% 真闭环——真渲染+真 CV 感知（0.00mm 精度）+ LLM 规划插槽 + 任务套件 5/5；CI 上线。
 - 真机件待臂重装：像素→工作区标定、预设位姿库、TCP 桥接入（照 SO101_QUICKSTART）。
 
 ## 跑 mock 演示

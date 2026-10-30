@@ -10,7 +10,11 @@ from ..types import ObjectDetection
 class Perception(list):
     """list[ObjectDetection] 的语义别名。"""
 
-    __slots__ = ()
+    __slots__ = ("frame_b64",)
+
+    def __init__(self, items=(), frame_b64: str | None = None):
+        super().__init__(items)
+        self.frame_b64 = frame_b64
 
 
 class Camera(ABC):
