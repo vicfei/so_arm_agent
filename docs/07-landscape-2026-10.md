@@ -15,7 +15,7 @@
    "perception as file I/O"；verifier 重规划 = HarnessPAI outcome check；DeepSeek 当 planner =
    ORA 的模型选型。设计不用改，放心建。
 2. **生态位空着**：四家全部仿真优先/大算力/特殊硬件。**真机 SO-101 + 8GB 消费卡 + lerobot 生态**
-   无人占据；OpenRUA 甚至把 ZCode 列为"未验证的插件智能体"。
+   无人占据；OpenRUA 文档把若干 agent 运行时列为"未验证的插件智能体"。
 3. **可借件**（落进骨架）：
    - ORA evidence recording：请求/工具调用/动作/回执全落盘可回放 → `evidence.py`
    - ORA supervisor：模型不可绕过的执行前审查 → `supervisor.py`（否决权）
