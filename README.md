@@ -7,6 +7,8 @@ Robot Use Agent for SO-ARM101：不训练模型，用 LLM/VLM（API，低频咨�
 > 设计定稿见 [docs/06-robot-use-agent-roadmap.md](docs/06-robot-use-agent-roadmap.md)（2026-10-20，自
 > robot-learning-journey 迁入，本仓即该路线的设计文档+代码仓）。生态扫描与借鉴清单见
 > [docs/07-landscape-2026-10.md](docs/07-landscape-2026-10.md)（ORA / OpenRUA / HarnessPAI / GenSwarm）。
+> 真机切换记录见 [docs/08-createblock-arm-integration.md](docs/08-createblock-arm-integration.md)
+> （2026-11-08，SO-101 退役，CreateBlock Jetson 臂接入：SSH→Nano→uServo 通道 + pybullet 同构层 + 首抓复盘）。
 
 ## 架构（四件套，06 号定稿）
 
