@@ -77,8 +77,10 @@ Task(自然语言) ─→ Planner ─→ Plan[{primitive, args}...] ─→ Super
 
 ## 7. 里程碑
 
-- **M1 真机原语层**（无 LLM）：FrameSource 双模式 + 四原语类化（今日脚本改造）+
-  启动自检。验收：**插头任务全自动 3/3 复跑成功**。
+- **M1 真机原语层**（无 LLM）：FrameSource 双模式 + 四原语类化 + 启动自检。
+  **状态（11-14 深夜）：代码层已落仓**（perception/framesource+hsv_detector、
+  executor/createblock 含安全层与双 CodeRunner、primitives/createblock 四原语，
+  21/21 单测绿）。**待真机验收：臂通电后插头任务 3/3 复跑**。
 - **M2 云脑接入**：Planner（DeepSeek）+ Supervisor/Evidence 完整化。
   验收："把桌上白色物体夹起来"自然语言一句进、evidence 全链出。
 - **M3 仿真排练默认化**：动作序列先 SimExecutor 走通再上真机；任务套件 5 项跑分。

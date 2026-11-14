@@ -2,13 +2,19 @@
 
 [![CI](https://github.com/vicfei/so_arm_agent/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vicfei/so_arm_agent/actions/workflows/ci.yml)
 
-Robot Use Agent for SO-ARM101：不训练模型，用 LLM/VLM（API，低频咨询）驱动确定性原语完成桌面任务。
+**Robot Use Agent harness on a low-cost arm** — 零训练：LLM/VLM（低频云端咨询）驱动确定性原语
+完成桌面任务。真机（CreateBlock 5-DOF + Jetson Nano，¥1500 级全套）已跑通
+**扫描→对中→夹取→验证 全自动闭环**（2026-11-14，含电流监护安全层）。
+路线与 [RoboHarness (arXiv:2610.14018)](https://arxiv.org/abs/2610.14018)
+同构：simple harness, no VLA training；supervisor/evidence 模式借鉴 [ORA]。
 
 > 设计定稿见 [docs/06-robot-use-agent-roadmap.md](docs/06-robot-use-agent-roadmap.md)（2026-10-20，自
 > robot-learning-journey 迁入，本仓即该路线的设计文档+代码仓）。生态扫描与借鉴清单见
 > [docs/07-landscape-2026-10.md](docs/07-landscape-2026-10.md)（ORA / OpenRUA / HarnessPAI / GenSwarm）。
 > 真机切换记录见 [docs/08-createblock-arm-integration.md](docs/08-createblock-arm-integration.md)
 > （2026-11-08，SO-101 退役，CreateBlock Jetson 臂接入：SSH→Nano→uServo 通道 + pybullet 同构层 + 首抓复盘）。
+> harness 设计 v1 见 [docs/09-createblock-harness-design.md](docs/09-createblock-harness-design.md)
+> （2026-11-14，三层脑 / 四原语 / 安全层六条 / M1-M4）。
 
 ## 架构（四件套，06 号定稿）
 
